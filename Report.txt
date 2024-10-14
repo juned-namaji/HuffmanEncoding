@@ -1,0 +1,31 @@
+Huffman Encoding and Decoding Model: The Purpose of .huff and .tree Files
+1. The .huff File (Compressed Data File):
+Purpose:
+This file contains the compressed version of the input text using the Huffman encoding scheme.
+
+Contents:
+The file stores the binary representation of the original text. Each character is replaced by its corresponding Huffman code, which consists of a sequence of 0s and 1s.
+This binary-encoded data reduces the file size when the Huffman codes are shorter than the original encoding, such as 8-bit ASCII.
+
+Why .huff?:
+The .huff extension is commonly used for files that store Huffman-encoded (compressed) data. It helps distinguish compressed files from original or decompressed ones.
+
+2. The .tree File (Huffman Tree Structure File):
+Purpose:
+This file stores the structure of the Huffman tree used for encoding. It is necessary for decoding the compressed data back into the original text during decompression.
+
+Contents:
+The file contains the frequency dictionary of characters from the original file. This information is used to reconstruct the exact Huffman tree during decompression.
+Since Huffman encoding is variable-length, the tree structure is essential. The encoded binary sequence alone is not enough to restore the original data without the tree.
+
+Why .tree?:
+The .tree extension signifies that the file contains the structure or information about the Huffman Tree. Without this file, it would be impossible to properly decode the compressed data, as the tree dictates how binary data maps back to characters.
+
+3. Why Two Files?
+Separation of Compressed Data and Tree Structure:
+The compressed .huff file contains only the encoded data. Since Huffman encoding relies on the specific structure of the Huffman tree (which varies based on character frequencies in the input), the tree needs to be saved separately.
+The .tree file allows the decompression process to reconstruct the Huffman tree exactly as it was built during compression.
+4. Summary
+.huff File: Contains the compressed, binary-encoded data.
+.tree File: Contains the frequency information or structure of the Huffman Tree needed for decompression.
+These file extensions are just conventions for clarity but help differentiate between compressed data and the auxiliary information required for decoding.
